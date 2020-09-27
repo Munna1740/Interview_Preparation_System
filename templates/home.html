@@ -1,0 +1,47 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block body %}
+
+
+<body class="index-page sidebar-collapse">
+  <!-- Navbar -->
+  <!-- End Navbar -->
+  <div class="wrapper">
+    <div class="page-header clear-filter" filter-color="orange">
+      <div class="page-header-image" data-parallax="true" style="background-image:url('{% static 'assets/img/header.jpg' %}');">
+      </div>
+      <div class="container">
+        <div class="content-center brand">
+          <h1 class="h1-seo">Welcome</h1>
+          <h3>To Interview Preparation System</h3>
+          <br>
+
+       <form enctype="multipart/form-data" action="/upload_resume/" method="post">{% csrf_token   %}
+          <input   class="btn btn-primary btn-round btn-lg"  type="file" id="inputGroupFile02" name="resume_upload" style=" background-color: transparent; border: 1px solid white;
+                    color: #FFFFFF; width: 300px"  >
+          <input type="submit" class="btn btn-primary btn-round btn-lg" value="Upload CV " >
+       </form>
+          <br>
+          <br>
+          <br>
+          <a href="#" class="btn btn-primary btn-round btn-lg" target="_blank">Interview Preparation questions for you </a>
+          <br>
+          <a href="#" class="btn btn-primary btn-round btn-lg" target="_blank">Suitable Job for you based on Your skills </a>
+          <br>
+          <a href="#" class="btn btn-primary btn-round btn-lg" target="_blank">Evaluate Yourselves based on your skills </a>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- Sart Modal -->
+    <!--  End Modal -->
+    <!-- Mini Modal -->
+    <!--  End Modal -->
+  </div>
+  <!--   Core JS Files   -->
+
+</body>
+
+</html>
+{% endblock %}
