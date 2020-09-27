@@ -22,38 +22,45 @@
       <div class="section section-download" id="#download-section" data-background-color="black">
         <div class="container">
           <h2 style="text-align: center;">Quiz Questions</h2>
+             {% for i in quiz %}
+            <hr>
 
               <div>
                 <div>
-                  <h3>What is python?</h3>
-                  <form>
+                    <form>
+                  <h3>{{i.id}} ) {{i.question}} ?</h3>
+
                    <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" >
+                        <input class="form-check-input" type="radio" name={{i.id}} id="option1" value="{{i.option1}}" >
                         <span class="form-check-sign"></span>
-                        Programing languages
+                        {{i.option1}}
                     </label>
                 </div>
 
                 <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+                        <input class="form-check-input" type="radio" name={{i.id}} id="option2" value="{{i.option2}}" >
                         <span class="form-check-sign"></span>
-                        snaks
+                        {{i.option2}}
                     </label>
                 </div>
                 <div class="form-check form-check-radio">
                     <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" checked>
+                        <input class="form-check-input" type="radio" name={{i.id}} id="option2" value="{{i.option3}}">
                         <span class="form-check-sign"></span>
-                        nothing
+                        {{i.option3}}
                     </label>
                  </div>
+
                 </form>
               </div>
 
 
               </div>
+            {% endfor %}
+            <input type="submit" class="btn btn-success" value="Submit" id="b11" onclick="getAnswer()">
+            <br>
         </div>
       </div>
     </div>

@@ -5,7 +5,6 @@ from .models import *
 from django.apps import apps
 
 
-# Create your views here.
 @login_required
 def index(request):
     user_info_model = apps.get_model('user', 'UserInfo')
