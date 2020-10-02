@@ -12,7 +12,7 @@ def index(request):
     skills = str(user_info.key_skills).replace(',', "")
     skills = skills.split()
 
-    options = ['X1', 'X2', 'X3']
+
     qs = [Q(tag__contains=option) for option in skills]  # make a query for getting all the questions for every skill
 
     query = qs.pop()  # get the first element

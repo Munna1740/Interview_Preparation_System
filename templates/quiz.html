@@ -1,8 +1,16 @@
 {% extends 'navbar.html' %}
 {% load static %}
 {% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <body class="index-page sidebar-collapse">
+<script>
+
+        $(document).ready(function () {
+            $('.collapse').removeClass('show');
+
+        });
+    </script>
 
   <div class="wrapper">
     <div class="page-header clear-filter" filter-color="orange">
@@ -11,7 +19,7 @@
       <div class="container">
         <div class="content-center brand">
           <h1 class="h1-seo">Evaluate yourselves based on your skills</h1>
-          <h2>Scroll down to see yours ;)</h2>
+          <h2>Scroll down to see multiple choice questions </h2>
           <br>
         </div>
 
@@ -52,6 +60,28 @@
                         {{i.option3}}
                     </label>
                  </div>
+                                                <br>
+                        <div style="color: green">
+                            <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+              <div class="card card-plain">
+                <div class="card-header" role="tab" id="h{{ i.id }}">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" data-target="#c{{ i.id }}"
+
+                                                       aria-controls="c{{ i.id }}">
+                      See the correct answer!!
+
+                  <i class="now-ui-icons arrows-1_minimal-down"></i>
+                    </a>
+                </div>
+
+                <div id="c{{ i.id }}" class="collapse show" role="tabpanel" aria-labelledby="h{{ i.id }}" >
+                  <div class="card-body">
+                      {{i.correctAns}}
+                  </div>
+                </div>
+              </div>
+            </div>
+                        </div>
 
                 </form>
               </div>
@@ -59,7 +89,8 @@
 
               </div>
             {% endfor %}
-            <input type="submit" class="btn btn-success" value="Submit" id="b11" onclick="getAnswer()">
+
+            <a href="/home" class="btn btn-success"  id="b11">Done</a>
             <br>
         </div>
       </div>

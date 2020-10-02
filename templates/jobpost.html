@@ -1,8 +1,15 @@
 {% extends 'navbar.html' %}
 {% load static %}
 {% block body %}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body class="index-page sidebar-collapse">
+    <script>
+
+        $(document).ready(function () {
+            $('.collapse').removeClass('show');
+
+        });
+    </script>
   <!-- Navbar -->
   <!-- End Navbar -->
   <div class="wrapper">
@@ -28,47 +35,57 @@
             <div class="col-md-8 ml-auto mr-auto">
               
             <div>
+                {% for job_obj in jobpost %}
 
-             <h2>Jr. Software Engineer</h2>
+             <h2>{{job_obj.jobTitle}}</h2>
 
               <div>
                 <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
               <div class="card card-plain">
-                <div class="card-header" role="tab" id="headingOne">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Collapsible Group Item #1
+                <div class="card-header" role="tab" id="h{{ job_obj.id }}">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" data-target="#c{{ job_obj.id }}"
+
+                                                       aria-controls="c{{ job_obj.id }}">
+                      Short Description:
 
                   <i class="now-ui-icons arrows-1_minimal-down"></i>
                     </a>
                 </div>
 
-                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                <div id="c{{ job_obj.id }}" class="collapse show" role="tabpanel" aria-labelledby="h{{ job_obj.id }}" >
                   <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      {{job_obj.shortDescription}}
                   </div>
                 </div>
               </div>
               <div class="card card-plain">
-                <div class="card-header" role="tab" id="headingTwo">
-                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Collapsible Group Item #2
+                <div class="card-header" role="tab" id="headingTwo" id="k{{ job_obj.id }}">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" data-target="#p{{ job_obj.id }}"
+
+                                                       aria-controls="p{{ job_obj.id }}">
+                    Short Requirement:
 
                     <i class="now-ui-icons arrows-1_minimal-down"></i>
                     </a>
                 </div>
-                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div id="p{{ job_obj.id }}" class="collapse" role="tabpanel" aria-labelledby="k{{ job_obj.id }}">
                   <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      {{job_obj.shortRequirement}}
+
                   </div>
                 </div>
               </div>
             <br>
-            <a href="#" class="btn btn-primary">Apply here</a>
+            <a href="{{ job_obj.link }}" class="btn btn-primary">Apply here</a>
             </div>
           </div>
+                    <br>
+                    <hr style="background-color: white">
+
+                {% endfor %}
 
         </div>
-        <hr>
+
 
 
 

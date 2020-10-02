@@ -50,11 +50,7 @@
                                                     <a data-toggle="collapse" data-parent="#accordion"
                                                        href="#collapseOne" style="font-size: 20px"
                                                        data-target="#c{{ question_obj.id }}"
-                                                            {% if forloop.counter == 1 %}
-                                                       aria-expanded="false"
-                                                            {% else %}
-                                                       aria-expanded="false"
-                                                            {% endif %}
+
                                                        aria-controls="c{{ question_obj.id }}">
                                                         {{ question_obj.question }}
 
@@ -67,11 +63,14 @@
                                                     <div class="card-body" style="font-size: 15px">
                                                         Answer: {{ question_obj.answer }}
                                                     </div>
+                                                    <br>
+                    <hr style="background-color: white">
                                                 </div>
                                             </div>
 
 
                                         </div>
+
                                     {% endfor %}
                                 </div>
 
