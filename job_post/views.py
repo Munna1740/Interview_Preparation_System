@@ -22,12 +22,6 @@ def index(request):
 
     jp = JobPost.objects.filter(query)
 
-    # questions = Questions.objects.filter(tag__contains=skill1[1])
-    # for question in qs:
-    #     print(question.question + "\n")
-    #
-    # for skill in skills:
-    #     print(skill + "\n")
 
     context = {
         'jobpost': jp,

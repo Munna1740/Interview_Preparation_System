@@ -13,21 +13,15 @@ def index(request):
     skills = skills.split()
 
 
-    qs = [Q(tag__contains=option) for option in skills]  # make a query for getting all the questions for every skill
+    qs = [Q(tag__contains=option) for option in skills]
 
-    query = qs.pop()  # get the first element
+    query = qs.pop()
 
     for q in qs:
         query |= q
 
     qs = Questions.objects.filter(query)
 
-    # questions = Questions.objects.filter(tag__contains=skill1[1])
-    # for question in qs:
-    #     print(question.question + "\n")
-    #
-    # for skill in skills:
-    #     print(skill + "\n")
 
     context = {
         'questions': qs,

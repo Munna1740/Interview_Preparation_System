@@ -101,28 +101,6 @@ def convert_pdf_to_string(file_path):
     return (output_string.getvalue())
 
 
-def convert_title_to_filename(title):
-    filename = title.lower()
-    filename = filename.replace(' ', '_')
-    return filename
-
-
-def split_to_title_and_pagenum(table_of_contents_entry):
-    title_and_pagenum = table_of_contents_entry.strip()
-
-    title = None
-    pagenum = None
-
-    if len(title_and_pagenum) > 0:
-        if title_and_pagenum[-1].isdigit():
-            i = -2
-            while title_and_pagenum[i].isdigit():
-                i -= 1
-
-            title = title_and_pagenum[:i].strip()
-            pagenum = int(title_and_pagenum[i:].strip())
-
-    return title, pagenum
 
 
 # function that filters skills
@@ -132,7 +110,7 @@ def filterWords(word):
     s_tags = ''
     for tag in skill_tags:
         s_tags = s_tags + tag['tag'] + ' '
-    skills = []
+
     skills = list(s_tags.split(" "))
     if (word in skills):
         return True
